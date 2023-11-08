@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Shelf {
     public final static int SHELF_NUMBER_ = 0;
     public final static int SUBJECT_ = 1;
-    private HashMap<Book, Integer> books;
+    private HashMap<Book, Integer> books = new HashMap<>();
     private int shelfNumber;
     private String subject;
 
@@ -44,7 +44,7 @@ public class Shelf {
     }
     public Code removeBook(Book book){
         boolean match = books.containsKey(book);
-        int count = books.get(book);
+        Integer count = books.get(book);
         if(!match) {
             System.out.println(book.getTitle() + " is not on the shelf " + this.subject);
             return Code.BOOK_NOT_IN_INVENTORY_ERROR;
@@ -63,15 +63,18 @@ public class Shelf {
     }
     public String listBooks(){
         String allBooks = books.size() + " books on shelf: ";
-        allBooks += this.toString();
+        allBooks += this.toString() + "\n";
         for(Book x: this.books.keySet()){
-            allBooks += x.toString();
+            //String val = String.valueOf(this.books.get(x));
+            allBooks += x.toString() + " " + this.books.get(x);
+            //allBooks += "\n";
         }
-        return allBooks;
+        //allBooks.substring(0, allBooks.length() - 2);
+        return allBooks.trim();
     }
     public int getBookCount(Book book){
-        int count = books.get(book);
-        if(count == 0) return -1;
+        Integer count = books.get(book);
+        if(count == null) return -1;
         return count;
     }
 

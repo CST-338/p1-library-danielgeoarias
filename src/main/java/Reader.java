@@ -9,16 +9,16 @@ import java.util.Objects;
  * Explanation: Defining Reader class
  */
 public class Reader {
-    public static int CARD_NUMBER_ = 0;
-    public static int NAME_ = 1;
-    public static int PHONE_ = 2;
-    public static int BOOK_COUNT_ = 3;
-    public static int BOOK_START_ = 4;
+    public final static int CARD_NUMBER_ = 0;
+    public final static int NAME_ = 1;
+    public final static int PHONE_ = 2;
+    public final static int BOOK_COUNT_ = 3;
+    public final static int BOOK_START_ = 4;
 
     private int cardNumber;
     private String name;
     private String phone;
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
 
     public Reader(int cardNumber, String name, String phone){
         this.cardNumber = cardNumber;
