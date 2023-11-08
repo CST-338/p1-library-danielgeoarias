@@ -62,7 +62,11 @@ public class Shelf {
         return  Code.SUCCESS;
     }
     public String listBooks(){
-        String allBooks = books.size() + " books on shelf: ";
+        String allBooks = String.valueOf(books.size());
+        if(books.size() == 1) allBooks += " book on shelf: ";
+            else {
+                allBooks += " books on shelf: ";
+        }
         allBooks += this.toString() + "\n";
         for(Book x: this.books.keySet()){
             //String val = String.valueOf(this.books.get(x));
