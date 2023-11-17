@@ -50,7 +50,6 @@ public class Library {
       System.out.println(reader.getName() + " doesn't have " book.getTitle() + " checked out");
       return Code.READER_DOESNT_HAVE_BOOK_ERROR;;
     }
-    //if()
   }
   private Code addBookToShelf(Book book, Shelf shelf){
 
